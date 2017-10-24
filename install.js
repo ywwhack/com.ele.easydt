@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+console.log('正在生成 easydt 扩展依赖文件...')
+
 const HOME = process.env.HOME
 const DIST_DIR = `${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts`
 
@@ -25,3 +27,5 @@ const PACKAGE_NAME = 'com.ele.easydt.json'
 const template = fs.readFileSync(`${__dirname}/${PACKAGE_NAME}.template`, 'utf8')
 const result = template.replace(/__home__/, HOME)
 fs.writeFileSync(`${DIST_DIR}/${PACKAGE_NAME}`, result)
+
+console.log('生成完毕！')
